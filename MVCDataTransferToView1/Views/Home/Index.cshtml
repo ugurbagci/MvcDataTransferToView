@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h2>@ViewBag.Baslik</h2>
+
+        @{
+            int toplam = ViewBag.Sayi1 + ViewBag.Sayi2;
+        }
+        <h1>@toplam</h1>
+        <hr />
+        @foreach (var item in ViewBag.isimler)
+        {
+            @item<br />
+        }
+        <hr />
+        @{
+            List<string> soyadlar = ViewData["soyisimler"] as List<string>;
+        }
+
+        @for (int i = 0; i < soyadlar.Count; i++)
+        {
+            <b>@ViewBag.isimler[i] @soyadlar[i]</b>
+        }
+        <hr />
+        @TempData["AdSoyad"]
+
+    </div>
+</body>
+</html>
